@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #1F1F1F;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  margin: 2px 10px 2px 10px;
+  padding: 0;
+  list-style-position: inside;
+}
+
+li {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.overskrift{
+  font-family: Poppins;
+  padding: 5px;
+  color: white;
+}
+
+.star{
+  color: #E4E441;
+}
+
+.overskrift1{
+  font-family: Poppins;
+  color: white;
+}
+
+.box{
+  height: 100px;
+}
