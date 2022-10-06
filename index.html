@@ -3,22 +3,76 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title>Sigende titel</title>
+	<title>Find A Movie</title>
 	
 	<meta name="robots" content="All">
 	<meta name="author" content="Udgiver">
 	<meta name="copyright" content="Information om copyright">
 	
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<link href="css/styles.scss" rel="stylesheet" type="text/css">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
+<div class="container">
+	<div class="movies">
+		<div class="filter text-white p-4">
+			<div class="row">
+
+				<div class="col-md-4 pt-4 pb-5">
+					<input type="search" class="shadow form-control nameSearch" placeholder="Søg efter filmen du leder efter">
+				</div>
+				<div class="custom-select pt-2 col-md-4 pb-5" style="width:200px; font-family: Poppins;">
+					<label for="aarSearch">Udkommelseår</label>
+					<select class="aarSearch">
+						<option value="">Alle film</option>
+						<option value="1960">1960'erne</option>
+						<option value="1970">1970'erne</option>
+						<option value="1980">1980'erne</option>
+						<option value="1990">1990'erne</option>
+						<option value="2000">2000'erne</option>
+					</select>
+				</div>
+				<div class="custom-select pt-2 col-md-4 pb-5" style="width:200px; font-family: Poppins;">
+					<label for="genreSearch">Film genre</label>
+					<select class="genreSearch">
+						<option value="">Alle film</option>
+						<option value="Drama">Drama</option>
+						<option value="Action">Action</option>
+						<option value="Adventure">Adventure</option>
+						<option value="Crime">Krimi</option>
+						<option value="Thriller">Thriller</option>
+						<option value="Horror">Gys</option>
+						<option value="Sci-Fi">Sci-Fi</option>
+						<option value="Comedy">Komedie</option>
+						<option value="Biography">Biografi</option>
+						<option value="Fantasy">Fantasi</option>
+					</select>
+				</div>
+				<div style="font-family: Poppins;" class="col-md-4 pt-3 pb-5 te text-white">
+					<label>IMDB Rating (0-10)</label>
+					<input class="ratingSearch film" id="rating" type="range" name="weight" value="0" min="0" max="9" oninput="ratingDisp.value = rating.value">
+					<output class="text-white ratingSearch text-decoration-underline" id="ratingDisp">0</output>
+				</div>
+			</div>
+		</div>
+
+		<div class="items pb-5">
+
+		</div>
+	</div>
+</div>
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module">
+	import Movies from "./js/movie.js";
+
+	const movies = new Movies();
+	movies.init();
+</script>
 </body>
 </html>

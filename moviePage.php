@@ -1,7 +1,10 @@
 <?php
 require "settings/init.php";
 
-$movies = $db->sql("SELECT * FROM `movie` WHERE`movieId` = 6;")
+$bind = [":movieId" => $_GET["movieId"]];
+$movies = $db->sql("SELECT * FROM movie WHERE`movieId` = :movieId;", $bind);
+
+
 
 ?>
 <!-- Instruktion til webbrowser om at vi kører HTML5 -->
@@ -46,40 +49,42 @@ $movies = $db->sql("SELECT * FROM `movie` WHERE`movieId` = 6;")
 </head>
 
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
-<body style="background-color: #1F1F1F;">
+<body style="background-image: linear-gradient(to right bottom, #051937, #051937, #190a1a, #12040d, #000000);">
 
 <div class="container pt-5">
     <div class="row">
-        <h1 class="text-light overskrift">
-        <?php
+        <div class="container">
+            <h1 class="text-light overskrift">
+            <?php
 
-        echo $movie->movieTitel
+            echo $movie->movieTitel
 
-        ?>
+            ?>
 
-        </h1>
+            </h1>
 
         <div>
-            <h4 class="text-light">
-                <?php
+        <h4 class="text-light">
+            <?php
 
-                echo $movie->movieYear
+            echo $movie->movieYear
 
-                ?> •
+            ?> •
 
-                <?php
+            <?php
 
-                echo $movie->movieDuration
+            echo $movie->movieDuration
 
-                ?> •
+            ?> •
 
-                <?php
+            <?php
 
-                echo $movie->movieIMDB
+            echo $movie->movieIMDB
 
-                ?> <i class="fa-regular fa fa-star"></i>
-            </h4>
-            <div class="container bg-light box mt-5 " style="height: 600px">
+            ?> <i class="fa-regular fa fa-star"></i>
+        </h4>
+        </div>
+            <div class="container mt-5 ">
                 <?php
                 if(!empty($movie->movieBillede)){
                     ?>

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Bent",
+    "age": "7",
+    "image": "bent.jpg",
+    "favoriteColors":["red", "blue"],
+    "hobbies": {
+      "fifa": "mester",
+      "vandpolo": "ringe"
+    }
+  },
+  {
+    "name": "Svende",
+    "age": "2",
+    "image": "svende.jpg",
+    "favoriteColors":["grøn", "grå"],
+
+    "hobbies": {
+      "fifa": "ringe",
+      "vandpolo": "mester"
+    }
+  }
+]

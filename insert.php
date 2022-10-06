@@ -42,23 +42,22 @@ if(!empty($_POST["data"])){
     <meta name="copyright" content="Information om copyright">
 
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.scss" rel="stylesheet" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
-<body style="background-color: #85FFBD;
-	background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);">
+<body>
 
 
-<div class="container">
-    <h1 class="text-center m-5 film">Velkommen til film spørgeskemaet</h1>
-    <p class="text-center lille_tekst pb-5">Tænk på din yndlingsfilm og udfyld felterne nedenfor, så vil jeg være meget taknemmelig.</p>
+<div class="container text-white">
+    <h1 class="text-center m-5 film">MoviePage</h1>
+    <p class="text-center lille_tekst pb-5">Tænk på din yndlingsfilm og udfyld felterne nedenfor, så vil det være mega fedt.</p>
 </div>
 
 <form method="post" action="insert.php " enctype="multipart/form-data">
-    <div class="row m-0">
+    <div class="row text-white m-0">
         <div class="col-12 col-md-6 p-5">
             <div class="form-group">
                 <label class="overskrift" for="movieTitel">Hvad er filmens titel?</label>
@@ -133,7 +132,7 @@ if(!empty($_POST["data"])){
         </div>
 
         <div class="col-12 col-md-6 offset-md-3 pb-3 p-5">
-            <button class="form-control submit_knap p-3 shadow" type="submit" id="btnSubmit">Indsend dine svar her!</button>
+            <button class="form-control submit_knap p-3 text-white shadow" type="submit" id="btnSubmit">Indsend dine svar her!</button>
         </div>
 
     </div>

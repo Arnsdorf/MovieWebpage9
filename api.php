@@ -30,9 +30,27 @@ if (isset($data["password"]) && $data["password"] == "Scooby"){
     $bind = [];
 
     if (!empty($data["nameSearch"])){
-        $sql = $sql .= " AND movieTitel = :movieTitel";
+        $sql = $sql .= " AND movieTitel LIKE CONCAT('%', :movieTitel, '%')";
         $bind[":movieTitel"] = $data["nameSearch"];
     }
+
+    if (!empty($data["ratingSearch"])){
+        $sql = $sql .= " AND movieIMDB >= :movieIMDB";
+        $bind[":movieIMDB"] = $data["ratingSearch"];
+    }
+
+    if (!empty($data["aarSearch"])){
+        $endYear = $data["aarSearch"];
+        $endYear = substr_replace($endYear, "9", -1);
+        $sql .= " AND movieYear >= :aarSearch AND movieYear <= :endYear";
+        $bind[":aarSearch"] = $data["aarSearch"];
+        $bind[":endYear"] = $endYear;
+    }
+    if (!empty($data["genreSearch"])){
+        $sql = $sql .= " AND movieGenre >= :movieGenre";
+        $bind[":movieGenre"] = $data["genreSearch"];
+    }
+
 
     $movie = $db->sql($sql, $bind);
     header("HTTP/1.1 200 OK");
@@ -41,7 +59,7 @@ if (isset($data["password"]) && $data["password"] == "Scooby"){
 
 } else{
     header("HTTP/1.1 401 Unauthorized");
-    $error["errorMessage"] = "Hov Skipper, kodeordet er vidst nok forkert";
+    $error["errorMessage"] = "Hov Skipper, kodeordet er vidst nok forkert, kammerat";
 
     echo json_encode($error);
 }
